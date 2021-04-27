@@ -3,9 +3,12 @@
 
 using namespace sf;
 
-const int num = 8; //checkpoints
 // TODO: use checkpoint to make sure we are on the track.
 // Slow speed when not on the track.
+// TODO: Stay within the limit of the map.
+// TODO: Don't show white at bottom/right.
+
+const int num = 8; //checkpoints
 int points[num][2] = { 300, 610,
   1270,430,
   1380,2380,
@@ -24,6 +27,7 @@ struct Car
         x += sin(angle) * speed;
         y -= cos(angle) * speed;
     }
+    //Ai to find what angle it should move to get to the next check point
     void findTarget()
     {
         float tx = points[n][0];
@@ -37,6 +41,7 @@ struct Car
 
 int main()
 {
+//---------------------------------------------Boiler Plat SFML-----------------------------------------------
     RenderWindow app(VideoMode(640, 480), "Car Racing Game!");
     app.setFramerateLimit(60);
     Texture t1, t2;
@@ -47,22 +52,30 @@ int main()
     Sprite sBackground(t1), sCar(t2);
     sBackground.scale(2, 2);
     sCar.setOrigin(22, 22);
+//------------------------------------------------------------------------------------------------------------
+
     float R = 22;
+    //Define Number Of Cars
     const int N = 5;
     Car car[N];
 
     // Starting positions
     for (int i = 0; i < N; i++)
     {
+        //Accross start line  x = 300 and y =  1700
         car[i].x = 300 + i * 50;
         car[i].y = 1700 + i * 80;
         car[i].speed = 7 + i;
     }
+
+
     float speed = 0, angle = 0;
     float maxSpeed = 12.0;
     float acc = 0.2, dec = 0.3;
     float turnSpeed = 0.08;
     int offsetX = 0, offsetY = 0;
+
+
     while (app.isOpen())
     {
         Event e;
@@ -72,11 +85,13 @@ int main()
                 app.close();
         }
         bool Up = 0, Right = 0, Down = 0, Left = 0;
-        if (Keyboard::isKeyPressed(Keyboard::Up)) Up = 1;
-        if (Keyboard::isKeyPressed(Keyboard::Right)) Right = 1;
-        if (Keyboard::isKeyPressed(Keyboard::Down)) Down = 1;
-        if (Keyboard::isKeyPressed(Keyboard::Left)) Left = 1;
-        //car movement
+        if (Keyboard::isKeyPressed(Keyboard::W)) Up = 1;
+        if (Keyboard::isKeyPressed(Keyboard::D)) Right = 1;
+        if (Keyboard::isKeyPressed(Keyboard::S)) Down = 1;
+        if (Keyboard::isKeyPressed(Keyboard::A)) Left = 1;
+
+
+        //car movement * HOW && WORKS LIKE THIS
         if (Up && speed < maxSpeed)
         {
             if (speed < 0)  speed += dec;
@@ -93,12 +108,16 @@ int main()
             else if (speed + dec < 0) speed += dec;
             else speed = 0;
         }
+
         if (Right && speed != 0)  angle += turnSpeed * speed / maxSpeed;
         if (Left && speed != 0)   angle -= turnSpeed * speed / maxSpeed;
         car[0].speed = speed;
         car[0].angle = angle;
         for (int i = 0; i < N; i++) car[i].move();
+        //Avoid Player 
         for (int i = 1; i < N; i++) car[i].findTarget();
+
+
         //collision
         for (int i = 0; i < N; i++)
             for (int j = 0; j < N; j++)
@@ -119,8 +138,7 @@ int main()
                 }
             }
         app.clear(Color::White);
-        // TODO: Stay within the limit of the map.
-        // TODO: Don't show white at bottom/right.
+       
         if (car[0].x > 320) offsetX = car[0].x - 320;
         if (car[0].y > 240) offsetY = car[0].y - 240;
         sBackground.setPosition(-offsetX, -offsetY);
