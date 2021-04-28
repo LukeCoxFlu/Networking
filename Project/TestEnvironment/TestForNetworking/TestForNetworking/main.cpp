@@ -3,6 +3,16 @@
 #include <string>
 #include <vector>
 #include "person.h"
+#include "circularBoundingBuffer.h"
+
+#define PRINT std::cout
+
+
+void print(int i)
+{
+	i ++;
+	std::cout << i << std::endl;
+}
 
 static bool s_Finished = false;
 
@@ -50,9 +60,52 @@ void funcExample_ThreadsWithClasses()
 	std::cout << gary.getHealth();
 }
 
+void funcExample_HighLevelCircularBoundingBuffer()
+{
+	circularBoundingBuffer<int, 5> CBB;
+
+	for (int i = 1; i < 8; i++)
+	{
+		if (!CBB.write(i)) std::cout << "\nFailed To Write\n";
+		else CBB.statusUpdate();
+	}
+
+	CBB.printBuffer();
+
+	int temp = 0;
+	for (int i = 1; i < 4; i++)
+	{
+		if (!CBB.read(temp))
+		{
+			PRINT << "\nno more left\n";
+		}
+		else
+		{
+			PRINT << "\nJust Read: " << temp << std::endl;
+		}
+	}
+	CBB.statusUpdate();
+
+	//THIS IS ACTUALLY THE COOLEST
+	PRINT << "\nPrinting Now...\n";
+	CBB.BUFFER_FOREACH(
+		[](int& value, int index)
+		{
+			int v = value;
+			v++;
+			std::cout << v << std::endl;
+		});
+	PRINT << "\nPrinting Now...\n";
+	CBB.BUFFER_FOREACH(
+		[](int& value,int index)
+		{
+			std::cout << index << ": "<< value << std::endl;
+		});
+}
+
 int main()
 {
-	funcExample_ThreadsWithClasses();
+	funcExample_HighLevelCircularBoundingBuffer();
 
 	return 0;
 }
