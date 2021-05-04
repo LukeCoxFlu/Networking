@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cmath>
+#include <mutex>
 
 template<typename BUFFER_TYPE, int BUFFER_SIZE>
 class circularBoundingBuffer
@@ -11,6 +12,13 @@ private:
 	unsigned int writeHead{ 0 };
 	unsigned int readHead{ 0 };
 	bool IsFull = false;
+	bool IsEmpty = true;
+
+	//Networking
+	std::mutex m_lock;
+
+	std::condition_variable not_full;
+	std::condition_variable not_empty;
 
 	//Increments the head by one if the head is at the max size then wrap around
 	void increment(unsigned int& head) {head = (head + 1) % BUFFER_SIZE;}
@@ -45,12 +53,18 @@ public:
 	//Bool For Fail
 	bool write(BUFFER_TYPE data)
 	{
+		std::unique_lock<std::mutex> unique_L(m_lock);
+		not_full.wait(unique_L, [&]() {return !IsFull; });
+
 		if (IsFull) return false;
 		else
 		{
 			buffer[writeHead] = data;
 			increment(writeHead);
+			IsEmpty = false;
+
 			if (writeHead == readHead) IsFull = true;
+			not_empty.notify_one();
 			return true;
 		}
 	}
@@ -58,13 +72,23 @@ public:
 	//takes in a data of the type and changes it to the read
 	bool read(BUFFER_TYPE& data)
 	{
-		if (isBufferEmpty()) return false;
+		std::unique_lock<std::mutex> unique_l(m_lock);
+
+		not_empty.wait(unique_l, [&]() {return !IsEmpty; });
+
+
+		if (IsEmpty) return false;
 		else
 		{
 			data = buffer[readHead];
 			increment(readHead);
+
+			if (isBufferEmpty()) IsEmpty = true;
 			IsFull = false;
 		}
+
+		not_full.notify_one();
+		return true;
 	}
 
 	//Functions outside after, template declaration (Current and Index)
@@ -86,5 +110,29 @@ public:
 	}
 	//Did work with Function pointers past through Template. Take a look at variadic template, http://www.cplusplus.com/forum/general/209696/
 
+	void consumerThread(int id)
+	{
+		for (int i = 0; i < 50; i++)
+		{
+			BUFFER_TYPE value = 0;
+			if(!read(value)) std::cout << "Something has gone terrable wrong";
+
+			std::cout << "Consumer: " << id << " fetched " << value << std::endl;
+
+			std::this_thread::sleep_for(std::chrono::milliseconds(250));
+		}
+	}
+
+	void producerThread(int id)
+	{
+		for (int i = 0; i < 75; i++)
+		{
+			if (!write(i)) std::cout << "Something has gone terrable wrong";
+
+			std::cout << "Producer: " << id << " produced " << i << std::endl;
+			std::this_thread::sleep_for(std::chrono::milliseconds(100));
+		}
+	}
 };
+
 

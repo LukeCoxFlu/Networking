@@ -1,4 +1,6 @@
 #pragma once
+#include <string>
+#include <mutex>
 
 enum enum_DamageType
 {
@@ -11,11 +13,17 @@ enum enum_DamageType
 class person
 {
 private:
+	std::string playerName;
 	int health;
-public:
-	person(int currentHealth) : health{ currentHealth } {};
+	int defence;
 
-	void calculateCurrentHealth(int damage, enum_DamageType damageType, int damagingPlayer_ID);
+	std::mutex lock;
+public:
+	person(std::string Name, int currentHealth, int defenceFactor) : health{ currentHealth }, playerName{ Name }, defence{defenceFactor} {};
+
+	//void calculateCurrentHealth(int damage, enum_DamageType damageType, int damagingPlayer_ID);
+
+	void initCombat(person& enemy);
 
 	int getHealth();
 };

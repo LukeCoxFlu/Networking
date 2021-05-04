@@ -8,6 +8,8 @@
 #define PRINT std::cout
 
 
+
+
 void print(int i)
 {
 	i ++;
@@ -15,6 +17,9 @@ void print(int i)
 }
 
 static bool s_Finished = false;
+
+
+
 
 //void workerThreadExec()
 //{
@@ -46,19 +51,7 @@ void funcExample_ThreadAsynchronisity()
 
 }
 
-void funcExample_ThreadsWithClasses()
-{
-	person gary(100);
 
-	std::thread damageThread{ &person::calculateCurrentHealth,  //parsing a function pointer to the function we want to thread
-							&gary,								//Parsing this
-							15,									// Var 1
-							enum_DamageType::PENIS,				// Var 2
-							3148124 };							// Var 3
-
-	damageThread.join();
-	std::cout << gary.getHealth();
-}
 
 void funcExample_HighLevelCircularBoundingBuffer()
 {
@@ -103,9 +96,57 @@ void funcExample_HighLevelCircularBoundingBuffer()
 		});
 }
 
+void func_RolfVDan()
+{
+	person person1("Rolfor", 100, 50);
+	person person2("Gaurd Dan", 165, 90);
+
+	std::thread attackThread1{ &person::initCombat,
+								&person1,
+								std::ref(person2) };
+	std::thread attackThread2{ &person::initCombat,
+								&person2,
+								std::ref(person1) };
+
+	attackThread1.join();
+	attackThread2.join();
+}
+
+void func_FunctioningConsumerProducerMutexAndConditions()
+{
+	circularBoundingBuffer<int, 5> CBB;
+
+	std::thread c1{ &circularBoundingBuffer<int, 5>::consumerThread,
+					&CBB,
+					0 };
+	std::thread c2{ &circularBoundingBuffer<int, 5>::consumerThread,
+					&CBB,
+					1 };
+	std::thread c3{ &circularBoundingBuffer<int, 5>::consumerThread, &CBB, 2 };
+
+	std::thread p1{ &circularBoundingBuffer<int, 5>::producerThread,
+					&CBB,
+					0 };
+
+	std::thread p2{ &circularBoundingBuffer<int, 5>::producerThread,
+					&CBB,
+					1 };
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+
+	CBB.printBuffer();
+
+
+	c1.join();
+	c2.join();
+	c3.join();
+	p1.join();
+	p2.join();
+}
+
 int main()
 {
-	funcExample_HighLevelCircularBoundingBuffer();
-
+	func_FunctioningConsumerProducerMutexAndConditions();
+	
 	return 0;
 }

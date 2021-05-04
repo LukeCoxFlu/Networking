@@ -1,20 +1,19 @@
 ﻿  circularBoundingBuffer.cpp
   main.cpp
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(77,15): warning C4244: 'initializing': conversion from 'long double' to 'int', possible loss of data
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(72): message : while compiling class template member function 'void circularBoundingBuffer<int,5>::BUFFER_FOREACH(void (__cdecl *)(BUFFER_TYPE &,int))'
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(101,15): warning C4244: 'initializing': conversion from 'long double' to 'int', possible loss of data
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(96): message : while compiling class template member function 'void circularBoundingBuffer<int,5>::BUFFER_FOREACH(void (__cdecl *)(BUFFER_TYPE &,int))'
           with
           [
               BUFFER_TYPE=int
           ]
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(91): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::BUFFER_FOREACH(void (__cdecl *)(BUFFER_TYPE &,int))' being compiled
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(84): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::BUFFER_FOREACH(void (__cdecl *)(BUFFER_TYPE &,int))' being compiled
           with
           [
               BUFFER_TYPE=int
           ]
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(65): message : see reference to class template instantiation 'circularBoundingBuffer<int,5>' being compiled
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(36,15): warning C4244: 'initializing': conversion from 'long double' to 'int', possible loss of data
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(30): message : while compiling class template member function 'void circularBoundingBuffer<int,5>::printBuffer(void)'
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(73): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::printBuffer(void)' being compiled
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(58): message : see reference to class template instantiation 'circularBoundingBuffer<int,5>' being compiled
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(44,15): warning C4244: 'initializing': conversion from 'long double' to 'int', possible loss of data
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(38): message : while compiling class template member function 'void circularBoundingBuffer<int,5>::printBuffer(void)'
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(66): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::printBuffer(void)' being compiled
   Generating Code...
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(68): warning C4715: 'circularBoundingBuffer<int,5>::read': not all control paths return a value
   TestForNetworking.vcxproj -> D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\Debug\TestForNetworking.exe

@@ -1,24 +1,32 @@
 #include "person.h"
+#include <stdlib.h>
+#include <thread>
+#include <iostream>
+#include <time.h> 
 
-void person::calculateCurrentHealth(int damage, enum_DamageType damageType, int damagingPlayer_ID)
+
+void person::initCombat(person& enemy)
 {
-	switch (damageType)
+	while (true)
 	{
-	case FIRE:
-		damage *= 0.5;
-		break;
-	case ICE:
-		damage *= 1.4;
-		break;
-	case VOID:
-		damage *= 2;
-		break;
-	case PENIS:
-		damage *= 1000000;
-		break;
-	}
+		if (health <= 0)
+		{
+			break;
+		}
+		srand(time(0));
+		int randomSleepTime = rand() % 2000 + 1;
+		std::this_thread::sleep_for(std::chrono::milliseconds(randomSleepTime));
+		std::cout << "Attack from " << playerName << std::endl;
+		
+		int randomDamage = rand() % 10 + 1;
+		enemy.health -= (int)((float)enemy.defence / 100 * randomDamage);
 
-	health -= damage;
+		if (enemy.health <= 0)
+		{
+			std::cout << enemy.playerName << " Is DEAD." << "Ya did it on " << health << std::endl;
+			break;
+		}
+	}
 }
 
 int person::getHealth()
