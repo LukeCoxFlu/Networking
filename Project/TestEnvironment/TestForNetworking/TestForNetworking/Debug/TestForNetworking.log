@@ -1,19 +1,17 @@
-﻿  circularBoundingBuffer.cpp
-  main.cpp
+﻿  main.cpp
 D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(101,15): warning C4244: 'initializing': conversion from 'long double' to 'int', possible loss of data
 D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(96): message : while compiling class template member function 'void circularBoundingBuffer<int,5>::BUFFER_FOREACH(void (__cdecl *)(BUFFER_TYPE &,int))'
           with
           [
               BUFFER_TYPE=int
           ]
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(84): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::BUFFER_FOREACH(void (__cdecl *)(BUFFER_TYPE &,int))' being compiled
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(86): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::BUFFER_FOREACH(void (__cdecl *)(BUFFER_TYPE &,int))' being compiled
           with
           [
               BUFFER_TYPE=int
           ]
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(58): message : see reference to class template instantiation 'circularBoundingBuffer<int,5>' being compiled
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(60): message : see reference to class template instantiation 'circularBoundingBuffer<int,5>' being compiled
 D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(44,15): warning C4244: 'initializing': conversion from 'long double' to 'int', possible loss of data
 D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\circularBoundingBuffer.h(38): message : while compiling class template member function 'void circularBoundingBuffer<int,5>::printBuffer(void)'
-D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(66): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::printBuffer(void)' being compiled
-  Generating Code...
+D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\TestForNetworking\main.cpp(68): message : see reference to function template instantiation 'void circularBoundingBuffer<int,5>::printBuffer(void)' being compiled
   TestForNetworking.vcxproj -> D:\GitProd\Networking\Project\TestEnvironment\TestForNetworking\Debug\TestForNetworking.exe

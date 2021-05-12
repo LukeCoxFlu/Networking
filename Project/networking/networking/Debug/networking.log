@@ -1,23 +1,23 @@
 ﻿  main.cpp
-D:\GitProd\Networking\Project\networking\networking\main.cpp(31,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(32,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(34,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(34,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(64,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(65,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(66,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(72,20): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\GitProd\Networking\Project\networking\networking\main.cpp(72,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\GitProd\Networking\Project\networking\networking\main.cpp(73,27): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\GitProd\Networking\Project\networking\networking\main.cpp(126,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(127,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(128,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(129,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(130,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(131,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(138,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(139,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(140,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(140,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(146,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(33,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(34,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(36,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(36,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(66,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(67,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(68,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(74,20): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\main.cpp(74,31): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\main.cpp(75,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\main.cpp(131,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(132,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(133,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(134,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(135,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(136,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(142,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(143,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(144,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(144,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(150,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   networking.vcxproj -> D:\GitProd\Networking\Project\networking\Debug\networking.exe

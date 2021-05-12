@@ -4,10 +4,16 @@
 #include <vector>
 #include "person.h"
 #include "circularBoundingBuffer.h"
+#include "SFML/Network.hpp"
+
 
 #define PRINT std::cout
 
-
+enum connectionType
+{
+	client,
+	Server
+};
 
 
 void print(int i)
@@ -144,9 +150,91 @@ void func_FunctioningConsumerProducerMutexAndConditions()
 	p2.join();
 }
 
+void func_NetworkingStart()
+{
+	sf::TcpSocket listeningSocket;
+	connectionType v_connectionType;
+	unsigned short listenPort = 4444;
+	std::string text = "Connected To: ";
+
+	char buffer[2000];
+	size_t recieved;
+
+	sf::IpAddress ip = sf::IpAddress::getLocalAddress();
+
+	PRINT << "Enter (1) for Server, and (0) for client\n";
+
+	int temp;
+	std::cin >> temp;
+	v_connectionType = static_cast<connectionType>(temp);
+
+	if (v_connectionType == connectionType::client)
+	{
+		listeningSocket.connect(ip, listenPort);
+
+		text += "Client\n";
+
+
+	}
+	else if (v_connectionType == connectionType::Server)
+	{
+		sf::TcpListener listener;
+
+		listener.listen(listenPort);
+		listener.accept(listeningSocket);
+
+		text += "Server\n";
+	}
+
+
+	bool hasDisconnect = false;
+	if (v_connectionType == connectionType::client)
+	{
+		while (true)
+		{
+			text = "";
+			std::string myMessage;
+			std::cin >> myMessage;
+
+			text += myMessage;
+			listeningSocket.send(text.c_str(), text.length() + 1);
+
+		}
+
+	}
+	else if (v_connectionType == connectionType::Server)
+	{
+		
+		while (!hasDisconnect)
+		{
+			sf::Socket::Status temp = listeningSocket.receive(buffer, sizeof(buffer), recieved);
+
+			if (temp == sf::Socket::Status::Disconnected)
+			{
+				hasDisconnect = true;
+				PRINT << "OOF Client at port " << listenPort << " Has  DISCONNECTED\n";
+				sf::TcpListener listener;
+
+				listener.listen(listenPort);
+				if (listener.accept(listeningSocket) == sf::Socket::Status::Done)
+				{
+					hasDisconnect = false;
+				}
+			}
+			else
+			{
+				PRINT << buffer << std::endl;
+			}
+		}
+
+	}
+
+	system("pause");
+}
+
 int main()
 {
-	func_FunctioningConsumerProducerMutexAndConditions();
-	
+	func_NetworkingStart();
+
 	return 0;
 }
