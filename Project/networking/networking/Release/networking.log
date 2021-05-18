@@ -1,28 +1,34 @@
-﻿  main.cpp
-D:\GitProd\Networking\Project\networking\networking\main.cpp(29,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(30,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(32,1): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(32,1): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(57,24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(58,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(59,26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(63,20): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\GitProd\Networking\Project\networking\networking\main.cpp(63,31): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\GitProd\Networking\Project\networking\networking\main.cpp(64,27): warning C4305: 'initializing': truncation from 'double' to 'float'
-D:\GitProd\Networking\Project\networking\networking\main.cpp(112,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(113,42): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(114,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(115,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(116,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(117,35): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(124,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(125,48): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(126,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(126,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-D:\GitProd\Networking\Project\networking\networking\main.cpp(132,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  car.cpp
+D:\GitProd\Networking\Project\networking\networking\car.cpp(8,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  game.cpp
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(15,12): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(15,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(16,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+  main.cpp
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(15,12): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(15,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(16,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\main.cpp(90,43): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(90,33): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+D:\GitProd\Networking\Project\networking\networking\main.cpp(99,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  playerCar.cpp
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(15,12): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(15,23): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\playerCar.h(16,18): warning C4305: 'initializing': truncation from 'double' to 'float'
+D:\GitProd\Networking\Project\networking\networking\playerCar.cpp(44,38): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+D:\GitProd\Networking\Project\networking\networking\playerCar.cpp(45,38): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+          with
+          [
+              T=float
+          ]
+  scrap.cpp
   Generating code
-  78 of 81 functions (96.3%) were compiled, the rest were copied from previous compilation.
-    77 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  163 of 176 functions (92.6%) were compiled, the rest were copied from previous compilation.
+    100 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   networking.vcxproj -> D:\GitProd\Networking\Project\networking\Release\networking.exe
